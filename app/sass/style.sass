@@ -1,0 +1,1352 @@
+$openSans: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif
+$ubuntu: "Ubuntu", Arial, "Helvetica Neue", Helvetica, sans-serif
+$neucha: 'Neucha', cursive
+$textDefault: #30324a
+$textWarning: #f8d904
+$warning: #fff216
+$primary: #308597
+$pastel: #f7f7f7
+
+
+=placeholder
+	&::-webkit-input-placeholder
+		@content
+	&:-moz-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&:-ms-input-placeholder
+		@content
+
+
+
+=mini
+	@media screen and (min-width: 400px)
+		@content
+=xs
+	@media screen and (min-width: 500px)
+		@content
+=mobile
+	@media screen and (min-width: 650px)
+		@content
+=tablet
+	@media screen and (min-width: 768px)
+		@content
+=minWidth850
+	@media screen and (min-width: 850px)
+		@content
+=desktop
+	@media screen and (min-width: 992px)
+		@content
+=minWidth1100
+	@media screen and (min-width: 1100px)
+		@content
+=container
+	@media screen and (min-width: 1175px)
+		@content
+=minWidth1330
+	@media screen and (min-width: 1330px)
+		@content
+
+
+body
+	background: #fff
+	color: $textDefault
+	font-size: 14px
+	line-height: 24px
+	font-family: $openSans
+
+.container
+	width: 100%
+	max-width: 1174px
+	margin: auto
+	padding: 0 10px
+	+mini
+		padding: 0 15px
+	+container
+		padding: 0
+	&__lg
+		+minWidth1330
+			max-width: 1324px
+
+/*Common styles*/
+.menu
+	li 
+		display: inline-block
+		margin-right: 2px
+		+mini
+			margin-right: 16px
+		&:hover
+			a 
+				background: $warning
+				transition: all .25s
+		a
+			display: block
+			font-weight: 600
+			font-size: 11px
+			line-height: 20px
+			padding: 0 2px
+			text-transform: uppercase
+			+mini
+				font-size: 12px
+.wrapper-mr
+	+container
+		margin-right: 50px
+.btn 
+	font-family: $neucha
+	font-weight: 400
+	line-height: 38px
+	padding: 0 5px 0 35px
+	background: $warning
+	text-transform: uppercase
+	display: inline-block
+	position: relative
+	border-radius: 50px
+	z-index: 1
+	+tablet
+		padding: 0 20px 0 45px
+	&::before
+		content: ""
+		position: absolute
+		top: 10px
+		left: -4px
+		width: 21px
+		height: 23px
+		z-index: 2
+		background: url(../img/ic-pen.png) no-repeat
+	&::after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 0
+		height: 100%
+		border-radius: 50px
+		z-index: -1
+		background: $primary
+	&:hover
+		transition: all .3s
+		color: #fff
+		&::after
+			transition: all .3s
+			width: 100%
+		&::before
+			background-position-x: -26px
+			animation: ring 4s .3s ease-in-out infinite
+		svg
+			fill: $primary
+			animation: ring 4s .3s ease-in-out infinite
+			transform-origin: 50% 4px
+	svg
+		position: absolute
+		top: -10px
+		left: -25px
+		fill: $warning
+		height: 60px
+		filter: drop-shadow(4px 5px 0px rgba(0, 0, 0, .2))
+		transform-origin: top center
+	&__sm
+		font-size: 12px
+		line-height: 26px
+		padding: 0 33px 0 40px
+		&::before
+			top: 4px
+			left: 3px
+			background: url(../img/ic-pen-sm.png) no-repeat
+		&:hover
+			&::before
+				background-position-x: -23px
+		+tablet
+			padding: 0 33px 0 40px
+		svg
+			height: 38px
+			top: -6px
+			left: -6px
+@keyframes ring
+	0% 
+		transform: rotate(0)
+	1% 
+		transform: rotate(30deg)
+	3% 
+		transform: rotate(-28deg)
+	5% 
+		transform: rotate(34deg)
+	7% 
+		transform: rotate(-32deg)
+	9% 
+		transform: rotate(30deg)
+	11%
+		transform: rotate(-28deg)
+	13%
+		transform: rotate(26deg)
+	15%
+		transform: rotate(-24deg)
+	17%
+		transform: rotate(22deg)
+	19%
+		transform: rotate(-20deg)
+	21%
+		transform: rotate(18deg)
+	23%
+		transform: rotate(-16deg)
+	25%
+		transform: rotate(14deg)
+	27%
+		transform: rotate(-12deg)
+	29%
+		transform: rotate(10deg)
+	31%
+		transform: rotate(-8deg)
+	33%
+		transform: rotate(6deg)
+	35%
+		transform: rotate(-4deg)
+	37%
+		transform: rotate(2deg)
+	39%
+		transform: rotate(-1deg)
+	41%
+		transform: rotate(1deg)
+	43%
+		transform: rotate(0)
+	100%
+		transform: rotate(0)
+.lang
+	p 
+		font-weight: 600
+		font-size: 12px
+		text-transform: uppercase
+	span
+		font-family: $ubuntu
+		font-weight: 500
+		font-size: 12px
+	a 
+		font-family: $ubuntu
+		font-weight: 500
+		font-size: 12px
+		display: inline-block
+		padding: 0 5px
+		position: relative
+		text-transform: uppercase
+	.eng
+		background-repeat: no-repeat
+		background-position: center center
+		background-image: url(../img/ic-flag-britain.png)
+	.rus
+		background-repeat: no-repeat
+		background-position: center center
+		background-image: url(../img/ic-flag-russian.png)
+	.frn
+		background-repeat: no-repeat
+		background-position: center center
+		background-image: url(../img/ic-flag-franch.png)
+.share
+	display: inline-block
+	line-height: 38px
+	border-radius: 50px
+	padding: 0 25px
+	font-weight: 600
+	background-color: rgb(255, 255, 255)
+	box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.17)
+	&:hover
+		background: $primary
+		color: #fff
+		transition: all .35s
+		.icon-facebook
+			color: #fff
+			transition: all .35s
+	.icon-facebook
+		color: #4267b2
+		font-size: 18px
+.phone
+	font-family: $ubuntu
+	font-weight: 700
+	font-size: 24px
+	&:hover
+		color: $primary
+	span
+		font-family: $openSans
+		font-weight: 400
+		font-size: 12px
+		display: block
+.title
+	font-family: $neucha
+	font-weight: 400
+	text-transform: uppercase
+	font-size: 38px
+	line-height: 42px
+	+desktop
+		font-size: 60px
+		line-height: 55px
+	span
+		position: relative
+	i 
+		position: relative
+		margin: 0 0 20px 20px
+		display: inline-block
+		border-radius: 50%
+		background: #efdf19
+		width: 24px
+		height: 24px
+		svg
+			width: 13px
+			fill: $primary
+			position: absolute
+			top: 5px
+			left: 5px
+	&__md
+		font-size: 33px
+		line-height: 14px
+		+desktop
+			font-size: 48px
+			line-height: 40px
+	&__sm
+		font-size: 32px
+		line-height: 40px
+		+mobile
+			font-size: 36px
+
+/*Header*/
+.header
+	padding: 10px 0
+	position: relative
+	.logo
+		float: left
+		margin-right: 2%
+		margin-bottom: 25px
+		+mini
+			margin-bottom: 0
+		img
+			width: 115px
+			height: auto
+			display: block
+			+mini
+				width: 130px
+			+minWidth850
+				width: auto
+		+minWidth1100
+			margin-right: 5%	
+	.phone
+		text-align: center
+		margin-right: 4%
+		margin-top: 8px
+		font-size: 20px
+		float: right
+		span
+			display: none
+			+mini
+				display: block
+		+mini
+			float: left
+		+mobile
+			font-size: 22px
+		+minWidth850
+			font-size: 24px
+			margin-top: 15px
+		+desktop
+			margin-right: 2%
+		+minWidth1100
+			margin-right: 6%	
+	.share
+		float: left
+		margin-right: 4%
+		margin-top: 13px
+		display: none
+		+desktop
+			display: block
+		+minWidth1100
+			margin-right: 6%
+	.btn 
+		float: left
+		margin-right: 1%
+		margin-top: 10px
+		display: none
+		+mobile
+			display: block
+		+minWidth850
+			margin-top: 15px
+	.lang
+		clear: both
+		text-align: right
+		+xs
+			clear: none
+			float: right
+			margin-right: 5px
+		+desktop
+			margin-right: 0
+		a 
+			display: inline-block
+			+xs
+				display: block
+			+desktop
+				display: inline-block
+		p 
+			margin: 14px 0 7px
+			display: none
+			+desktop
+				display: block
+		span
+			display: none
+			+desktop
+				display: inline
+	.toggle
+		position: absolute
+		bottom: 0
+		left: 0
+		+mini
+			position: static
+			float: right
+			margin-top: 10px
+		+desktop
+			display: none
+	&__wrap
+		background: #fdfeff
+		position: relative
+		z-index: 2
+		box-shadow: 0px 2px 2px 0px rgba(48, 133, 151, 0.35)
+		+desktop
+			box-shadow: none
+	&-top
+		display: none
+		+desktop
+			display: block
+		&__wrap
+			background: $pastel
+			border-bottom: 1px solid rgba(48, 133, 151, 0.2)
+			padding-top: 1px
+			+mobile
+				padding-top: 0
+			h1
+				font-weight: 600
+				font-size: 12px
+				line-height: 10px
+				text-transform: uppercase
+				+mobile
+					line-height: 20px
+					float: left
+					padding-top: 4px
+			.menu
+				+mobile
+					padding: 1px 0 3px
+					float: right
+.nav
+	li 
+		a 
+			font-family: $ubuntu
+			font-weight: 400
+			font-size: 16px
+			display: block
+			text-transform: uppercase
+			&:hover
+				transition: all .35s
+				color: $textWarning
+				svg
+					transition: all .35s
+					fill: $warning
+		svg
+			width: 10px
+			fill: #fff
+			margin-right: 10px		
+	&__wrap
+		line-height: 36px
+		color: #fff
+		background: $primary
+		display: none
+		+desktop
+			display: block
+			line-height: 60px
+		.nav
+			li 
+				+tablet
+					float: left
+					width: 50%
+				+desktop
+					float: none
+					width: auto
+					display: inline-block
+				&:not(:last-child)
+					+desktop
+						margin-right: 15px
+					+minWidth1100
+						margin-right: 45px
+					+container
+						margin-right: 70px						
+.toggle
+	svg
+		width: 50px
+		fill: $primary
+.sidenav
+	background: #fdfeff
+	padding-bottom: 10px
+	&-brand
+		background: #fdfeff
+		border-bottom: 1px solid $primary
+	&-header
+		background: #fdfeff
+		border-bottom: 1px solid $primary
+	&-menu
+		a 
+			padding: 16px 5px
+			color: $textDefault
+			&.active
+				color: $textDefault
+			&:hover
+				background: $primary
+	&-link
+		&-title
+			padding: 0 16px 0 20px
+	.btn 
+		margin-bottom: 20px
+		padding: 0 15px 0 35px
+		font-size: 16px
+.sticky
+	+minWidth850
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		background: #fff
+		z-index: 100
+		box-shadow: 0px 2px 2px 0px rgba(48, 133, 151, 0.35)
+		.logo
+			img
+				height: 55px
+				width: auto
+		.phone
+			margin-top: 5px
+		.btn 
+			margin-top: 10px
+		.lang
+			margin-right: 15px
+			p 
+				margin: 0 0 3px
+				display: block
+				
+			a 
+				display: inline-block	
+	.header
+		padding: 2px 0
+	.toggle
+		display: block
+		margin-top: 0
+	.share
+		display: none
+/*Promo*/
+.promo
+	padding-top: 10px
+	+desktop
+		padding: 20px 0 160px
+	&__wrap
+		position: relative
+		background-color: $pastel
+		background-image: url(../img/sprite-promo-bg.png)
+		background-repeat: repeat
+		&::before
+			content: ""
+			position: absolute
+			bottom: -78px
+			left: 0
+			width: 100%
+			height: 83px
+			background-image: url(../img/wave-bg.png)
+			background-repeat: repeat-x
+	&__image
+		position: absolute
+		top: 0
+		left: 0
+		width: 300px
+		display: none
+		height: auto
+		+xs
+			display: block
+		+mobile
+			width: 340px
+		+minWidth1100
+			width: 435px
+		+minWidth1330
+			width: auto
+	&__text
+		width: 100%
+		max-width: 625px
+		text-align: center
+		float: right
+		+xs
+			text-align: right
+		+mobile
+			padding-right: 50px
+		+desktop
+			padding-right: 0
+			text-align: left
+	.title__md
+		margin: 47px 0
+		padding-left: 20px
+.lessons-menu
+	display: inline-block
+	border-radius: 20px
+	background: rgba(232, 232, 232, 0.8)
+	margin-bottom: 20px
+	+mobile
+		margin-bottom: 0
+	li 
+		display: block
+		+desktop
+			display: inline-block
+		padding: 7px 0 2px 15px
+		&:last-child
+			a::after
+				display: none
+		&:hover
+			a 
+				transition: all .35s
+				color: $primary
+			svg
+				transition: all .35s
+				fill: $primary
+	a 
+		font-family: $neucha
+		font-size: 12px
+		line-height: 33px
+		text-transform: uppercase
+		padding: 5px 15px 0 10px
+		position: relative
+		display: block
+		float: left
+		&::after
+			content: ""
+			position: absolute
+			top: 12px
+			right: 0
+			width: 1px
+			height: 19px
+			background-color: rgb(160, 160, 160)
+			display: none
+			+desktop
+				display: block
+	svg
+		height: 35px
+		float: left
+		fill: $textDefault
+			
+/*Content*/
+.content
+	padding-bottom: 25px
+	width: 100%
+	max-width: 800px
+	+mobile
+		padding-left: 30px
+	+desktop
+		padding-top: 140px
+	.title
+		margin-bottom: 10px
+	&__wrap
+		.container
+			position: relative
+	h6 
+		text-transform: uppercase
+		margin-top: 30px
+.radio
+	display: block
+	margin-bottom: 10px
+	text-align: center
+	+mobile
+		margin-bottom: 35px
+		display: inline-block
+	&:last-child
+		display: block
+		text-align: center
+	&:first-child
+		+mobile
+			margin-right: 90px
+	input
+		display: none
+		&:checked + label::before
+			opacity: 1
+	label
+		font-size: 24px
+		line-height: 40px
+		text-transform: uppercase
+		cursor: pointer
+		position: relative
+		&::before
+			content: url(../img/tick.svg)
+			position: absolute
+			top: -9px
+			left: 3px
+			width: 12px
+			height: 10px
+			opacity: 0
+		svg 
+			width: 14px
+			fill: #fff
+			margin-right: 10px
+	&__block
+		color: #fff 
+		background-color: $primary
+		border-radius: 50px
+		width: 100%
+		max-width: 590px
+		padding: 30px 10px 20px
+		font-family: $neucha
+		margin-bottom: 40px
+		+mobile
+			padding: 30px 30px 0 45px
+			height: 294px
+			border-radius: 0
+			background-color: transparent
+			background-image: url(../img/check-image-bg.png)
+			background-repeat: no-repeat
+			background-position: center center
+		+desktop
+			margin-bottom: 0
+			position: absolute
+			top: -75px
+			right: 0
+		.title
+			text-align: center
+			margin-bottom: 20px
+			+mobile
+				margin-bottom: 50px
+			
+/*Statistic*/
+.statistic
+	padding: 30px 0
+	+mobile
+		padding: 90px 0
+	&__wrap
+		background: $pastel
+	&__col
+		+mobile
+			width: 33.3%
+			float: left
+	&__item
+		width: 215px
+		text-align: center
+		position: relative
+		margin: auto
+		.svg__bg
+			fill: #fff
+			filter: drop-shadow(4px 5px 0px rgba(0, 0, 0, .2))
+	&__content
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		padding-top: 65px
+		.title
+			font-family: $neucha
+			display: block
+			line-height: 24px
+			margin-bottom: 25px
+		p 
+			font-family: $neucha
+			font-size: 24px
+			line-height: 24px
+			
+/*Teacher*/
+.teacher
+	padding: 130px 0 40px
+	.title
+		margin-bottom: 75px
+		padding-left: 35px
+	&__image
+		width: 100%
+		max-width: 500px
+		margin: auto
+		+minWidth850
+			float: left
+			width: 50%
+		img
+			width: 100%
+			height: auto
+			display: block
+			+desktop
+				width: auto
+	&__content
+		width: 100%
+		max-width: 545px
+		margin: auto
+		padding:  45px 0 0 15px
+		+xs
+			padding: 45px 20px 0 40px
+		+minWidth850
+			float: left
+			width: 50%
+		+desktop
+			padding: 85px 40px 0
+		p 
+			margin-bottom: 45px
+		.btn 
+			margin-left: 20px
+			+minWidth850
+				margin-left: 0
+	&__title
+		font-family: $ubuntu
+		font-size: 24px
+		line-height: 40px
+		text-transform: uppercase
+		margin-bottom: 20px
+		text-align: center
+		+xs
+			text-align: left
+			margin-bottom: 0
+			padding-top: 10px
+			float: left
+			margin-right: 45px
+		&-wrap
+			margin-bottom: 25px
+			text-align: center
+			+xs
+				text-align: left
+.listen__circle
+	display: inline-block
+	border-width: 4px
+	border-color: rgb(232, 232, 232)
+	border-style: solid
+	border-radius: 50%
+	background-color: rgb(255, 255, 255)
+	width: 64px
+	height: 64px
+	position: relative
+	+xs
+		display: block
+		float: left
+	&:not(:last-child)
+		margin-right: 25px
+	&:hover
+		border-color: $warning
+	&::before
+		content: ""
+		position: absolute
+.microphone::before
+	top: 8px
+	left: 18px
+	width: 18px
+	height: 38px
+	background: url(../img/ic-microphone.png)
+.piano::before
+	top: 16px
+	left: 12px
+	width: 32px
+	height: 23px
+	background: url(../img/ic-piano.png)
+
+/*Contact*/
+.contact
+	position: relative
+	padding-bottom: 30px
+	.title
+		margin-bottom: 45px
+		position: relative
+		z-index: 5
+	&__wrap
+		background: $pastel
+		position: relative
+		&::before
+			content: ""
+			position: absolute
+			top: -72px
+			left: 0
+			width: 100%
+			height: 72px
+			background-image: url(../img/wave-bg-top.png)
+			background-repeat: repeat-x
+		.contact
+			+minWidth1330
+				padding-left: 75px
+	.map
+		width: 100%
+		max-width: 600px
+		height: 300px
+		margin: auto
+		+xs
+			height: 435px
+		+desktop
+			margin: 0
+			float: left
+			width: 50%
+			max-width: auto
+		+minWidth1330
+			max-width: 700px
+	&__content
+		max-width: 540px
+		margin: auto
+		width: 100%
+		+desktop
+			padding-left: 10px
+			display: inline-block
+			float: left
+			margin: 0
+			width: 50%
+			max-width: auto
+		+minWidth1330
+			width: auto
+	&__title
+		font-family: $neucha
+		font-size: 24px
+		line-height: 50px
+		text-align: center
+		margin-bottom: 30px
+	&__block
+		padding-left: 45px
+		p 
+			position: relative
+			padding-left: 40px
+			margin-bottom: 30px
+			font-size: 16px
+			line-height: 18px
+			svg
+				position: absolute
+				top: 0
+				left: 0
+				height: 22px
+				fill: $textDefault
+			a:hover
+				color: $textWarning
+	&__form
+		width: 100%
+		max-width: 535px
+		background: #fff 
+		border-radius: 10px
+		margin-top: 15px
+		padding: 25px 15px
+		text-align: center
+		+xs
+			text-align: left
+		+minWidth1330
+			padding: 25px 75px 25px 25px
+		&-title
+			font-family: $neucha
+			font-size: 30px
+			line-height: 50px
+			text-transform: uppercase
+			text-align: center
+			margin-bottom: 20px
+			+xs
+				text-align: left
+				padding-left: 60px
+		.btn 
+			margin-top: 15px
+	&__inp
+		width: 100%
+		max-width: 250px
+		margin-bottom: 20px
+		margin: auto
+		+xs
+			width: 50%
+			max-width: 190px
+			display: inline-block
+			float: left
+		&:nth-child(1)
+			+xs
+				margin-right: 45px
+		input
+			border: none
+			font-family: $openSans
+			font-size: 12px
+			font-weight: 400
+			line-height: 40px
+			color: $textDefault
+			background: #fff 
+			padding-left: 20px
+			border-width: 1px
+			border-color: rgb(48, 133, 151)
+			border-style: solid
+			width: 100%
+			+placeholder
+				font-family: $openSans
+				font-size: 12px
+				font-weight: 400
+				line-height: 50px
+				color: $textDefault
+			&:focus
+				+placeholder
+					opacity: 0
+					transition: all .25s
+	&__tArea
+		width: 100%
+		max-width: 250px
+		margin: auto
+		+xs
+			width: 50%
+			max-width: 190px
+			display: inline-block
+			float: left
+			margin-right: 45px
+		textarea
+			border: none
+			font-family: $openSans
+			font-size: 12px
+			font-weight: 400
+			line-height: 40px
+			color: $textDefault
+			background: #fff 
+			padding-left: 20px
+			border-width: 1px
+			border-color: rgb(48, 133, 151)
+			border-style: solid
+			width: 100%
+			+placeholder
+				font-family: $openSans
+				font-size: 12px
+				font-weight: 400
+				line-height: 50px
+				color: $textDefault
+			&:focus
+				+placeholder
+					opacity: 0
+					transition: all .25s
+.footer
+	background-color: rgb(255, 255, 255)
+	box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.17)
+	padding: 50px 5px 10px
+	position: relative
+	+mini
+		padding: 25px 5px 10px
+	&__top
+		padding-bottom: 30px
+	&__col
+		text-align: center
+		margin-bottom: 30px
+		+container
+			margin-bottom: 0
+			float: left
+			display: inline-block
+	&__menu
+		+container
+			float: left
+			padding-left: 35px
+		.nav
+			li 
+				text-align: center
+				margin-bottom: 15px
+				+xs
+					text-align: left
+					float: left
+					display: inline-block
+				&:not(:last-child)
+					+xs
+						margin-right: 25px
+			.submenu
+				a 
+					font-family: $openSans
+					font-size: 12px
+					line-height: 20px
+					text-transform: none
+				li 
+					display: block
+					float: none
+					margin-bottom: 0
+				&__all
+					text-decoration: underline
+					font-weight: 500
+		.lang
+			text-align: center
+			margin-top: 35px
+			+xs
+				text-align: left
+				float: right
+				margin-top: 75px
+	&__bottom
+		padding: 10px 0
+		border-top: 1px solid rgb(172, 172, 172)
+		p 
+			font-size: 12px
+			line-height: 20px
+			text-align: center
+			+tablet
+				text-align: left
+			&:first-child
+				margin-bottom: 10px
+				+tablet
+					margin-bottom: 0
+					float: left
+			&:last-child
+				+tablet
+					float: right
+			a 
+				&:hover
+					color: $textWarning	
+.arrow-up
+	width: 64px
+	height: 55px
+	display: block
+	background: $primary
+	position: absolute
+	text-align: center
+	padding-top: 13px
+	top: 0
+	right: 0
+	transition-duration: 0.3s
+	&:hover
+		background: $warning
+		transition: all .35s
+		svg
+			fill: #000
+			animation-name: hvr-icon-bob-float, hvr-icon-bob
+			animation-duration: .3s, .8s
+			animation-delay: 0s, .3s
+			animation-timing-function: ease-out, ease-in-out
+			animation-iteration-count: 1, infinite
+			animation-fill-mode: forwards
+			animation-direction: normal, alternate
+	+mini
+		top: 35px
+	+container
+		top: 60px
+	+minWidth1330
+		top: 35px
+	svg
+		width: 28px
+		fill: #fff
+		transform: translateZ(0)
+@keyframes hvr-icon-bob
+	0%
+		transform: translateY(-6px)
+	50%
+		transform: translateY(-2px)
+	100%
+		transform: translateY(-6px)
+@keyframes hvr-icon-bob-float
+	100%
+		transform: translateY(-6px)
+.social
+	text-align: center
+	a 
+		display: inline-block
+		margin-right: 20px
+		&:hover
+			i 
+				color: $textWarning
+		i 
+			font-size: 20px
+			color: #000
+
+
+/*ACTIVITY PAGE*/
+/*Promo-2*/
+.promo
+	&.promo2
+		padding-bottom: 50px
+		+minWidth1100
+			padding-bottom: 160px
+			padding-top: 145px
+		.promo__text
+			margin: auto
+			float: none
+			padding-right: 0
+			text-align: left
+			+minWidth1100
+				padding-right: 50px
+				float: right
+	&__wrap2
+		background-color: $pastel
+		+minWidth1100
+			background-color: none
+			position: relative
+			background-image: url(../img/promo-2-bg.jpg)
+			background-repeat: repeat-x
+			height: 535px
+			background-position: center center
+	&__image2
+		width: auto
+		height: auto
+		left: -170px
+		display: none
+		+minWidth1100
+			display: block
+		+container
+			left: 0
+	.title__sm
+		margin-bottom: 30px
+
+/*Emotion*/
+.emotion
+	padding: 40px 0 60px
+	.title
+		margin-bottom: 60px
+	&__col
+		
+		+mobile
+			width: 50%
+			float: left
+		+tablet
+			width: 33.3%
+		+desktop
+			width: 25%
+		&-title
+			font-family: $ubuntu
+			font-size: 18px
+			line-height: 20px
+			font-weight: 500
+			&__mt
+				padding-top: 15px
+		&-question
+			font-family: $neucha
+			font-size: 48px
+			text-align: center
+			line-height: 20px
+			margin: 15px 0 25px
+			color: $primary
+			text-transform: uppercase
+		.statistic
+			&__item
+				display: block
+				&:hover
+					>.svg__bg
+						filter: none
+						transition: filter .2s
+					.svg__bg
+						fill: $warning
+						transition: all .25s
+					.emotion__link
+						opacity: 1
+						transition: opacity .25s
+						.svg__bg
+							animation: ring 4s .3s ease-in-out infinite
+						.arrow-right
+							animation: ring 4s .3s ease-in-out infinite
+				.svg__bg
+					fill: $pastel
+			&__content
+				padding-top: 50px
+				width: 100%
+				max-width: 165px
+				left: 50%
+				-webkit-transform: translateX(-50%)
+				-moz-transform: translateX(-50%)
+				-ms-transform: translateX(-50%)
+				-o-transform: translateX(-50%)
+				transform: translateX(-50%)
+				span
+					display: block
+				small
+					display: block
+					font-size: 12px
+					line-height: 14px
+					font-family: $ubuntu
+					font-weight: 400
+				svg
+					height: 53px
+					fill: $primary
+				img
+					display: block
+					margin: auto
+					height: 66px
+					width: auto
+	&__label
+		position: absolute
+		top: 20px
+		left: 13px
+		z-index: 2
+		display: block
+		svg
+			height: 55px
+			fill: $pastel
+		span
+			font-family: $ubuntu
+			font-weight: 500
+			font-size: 16px
+			line-height: 14px
+			position: absolute
+			top: 22px
+			left: 19px
+			z-index: 2
+	&__link
+		position: absolute
+		bottom: 5px
+		right: 5px
+		display: block
+		opacity: 0
+		.svg__bg
+			height: 55px
+			fill: $warning
+		.arrow-right
+			fill: $textDefault
+			width: 23px
+			position: absolute
+			top: 17px
+			left: 16px
+
+/*About*/
+.about
+	padding: 50px 0 0
+	.title
+		margin-bottom: 60px
+	&__wrap
+		position: relative
+		overflow: hidden
+	&__col
+		+minWidth850
+			float: left
+			width: 50%
+	&__item
+		width: 100%
+		max-width: 600px
+		margin: auto
+		&:first-child
+			padding-right: 50px
+		p 
+			margin-bottom: 40px
+		img
+			margin: auto
+			display: block
+			margin-top: -30px
+			width: 100%
+			height: auto
+			+xs
+				width: auto
+			+minWidth850
+				margin-top: -150px
+.primary-bg
+	width: 100%
+	height: 130px
+	bottom: 0px
+	left: 0
+	position: absolute
+	background: $primary
+	z-index: -1
+	+mini
+		height: 200px
+	+minWidth850
+		height: 300px
+		bottom: 60px
+		width: 50%
+		left: auto
+		right: 0
+	
+/*Advantages*/
+.advantages
+	padding: 50px 0
+	.title__sm
+		text-transform: none
+		margin-bottom: 40px
+		+tablet
+			margin-bottom: 80px
+	&__col
+		margin-bottom: 40px
+		+tablet
+			width: 50%
+			float: left
+		+desktop
+			margin-bottom: 0
+			width: 33.3%
+	&__item
+		width: 100%
+		max-width: 300px
+		margin: auto
+		text-align: center
+		h6
+			font-family: $ubuntu
+			font-size: 20px
+			line-height: 20px
+			margin: 15px 0
+			font-weight: 700
+			+mobile
+				margin: 25px 0
+		img
+			height: 120px
+			width: auto
+		p 
+			line-height: 20px
+
+
